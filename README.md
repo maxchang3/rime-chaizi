@@ -7,7 +7,7 @@
 
 根据 @lotem 大佬在这个 [讨论](https://github.com/rime/home/discussions/764) 下的提示，我意识到我们完全可以类似于五笔反查、两分输入来实现上述功能。 因此我修改了[两分输入法](http://cheonhyeong.com/Simplified/download.html) 的方案，并尝试改为了 u 开头。
 
-词典方面，参照 [这位大佬](http://gerry.lamost.org/blog/?p=296003) 构建了拆字词典并做了去重和去除错误字符。
+词典方面，参照 [这位大佬](http://gerry.lamost.org/blog/?p=296003) 基于 [chaizi](https://github.com/kfcd/chaizi) 构建了拆字词典并做了去重和去除错误字符。
 
 # 使用
 src 下自取 schema 和 dict，也可以自己从 build.py 下构建（需下载 [chaizi-jt.txt](https://github.com/kfcd/chaizi/raw/master/chaizi-jt.txt) ）。
