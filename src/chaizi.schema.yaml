@@ -5,8 +5,9 @@
 schema:
   schema_id: chaizi
   name: Chaizi
-  version: "4.0"
+  version: "1.0"
   author:
+    - TianHeng <2417647441@qq.com>
     - MaxChang3 <maxcfoo@gamil.com>
   description: |
     This file is modified from http://cheonhyeong.com/Simplified/download.html
