@@ -12,11 +12,17 @@
 # 使用
 src 下自取 schema 和 dict，也可以自己从 build.py 下构建（需下载 [chaizi-jt.txt](https://github.com/kfcd/chaizi/raw/master/chaizi-jt.txt) ）。
 
-需要配置 u 拆字可以参考下面：（我没有弄好patch）
+#### 示例
+
+在朙月拼音中使用拆字，需要创建`luna_pinyin.custom.yaml`文件，然后贴入以下内容：
+
 ```yaml
-  engine/translators:
+# luna_pinyin.custom.yaml
+
+patch:
+  engine/translators/+:
      - reverse_lookup_translator
-  dependencies:
+  schema/dependencies/+:
     - chaizi
   reverse_lookup:
     dictionary: chaizi
@@ -31,3 +37,5 @@ src 下自取 schema 和 dict，也可以自己从 build.py 下构建（需下�
     patterns:
       reverse_lookup: "u[a-z]*?$"
 ```
+
+如果已经存在现有的patch，则需要手工合并。
