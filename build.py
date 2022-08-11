@@ -24,17 +24,17 @@ name: chaizi
 version: "2022.06.05"
 sort: by_weight
 use_preset_vocabulary: true
-...''') 
+...''')
     for line in lines:
         data = line.strip().split("\t")
-        if(data[0] == "□"): continue # 去除错误字符
+        if (data[0] == "□"): continue  # 去除错误字符
         for i in range(1, len(data)):
             py = "".join(lazy_pinyin(data[i].replace(" ", "")))
             if not py.isalpha():
                 # print(data[i])
                 continue
             item = f"{data[0].strip()}\t{py}"
-            if(item in res): continue # 去重
+            if (item in res): continue  # 去重
             res.append(item)
     os.mkdir('src')
     with open("src/chaizi.dict.yaml", "w") as f:
