@@ -10,7 +10,7 @@
 词典方面，参照 [这位大佬](http://gerry.lamost.org/blog/?p=296003) 基于 [chaizi](https://github.com/kfcd/chaizi) 构建了拆字词典并做了去重和去除错误字符。
 
 # 使用
-src 下自取 schema 和 dict，也可以自己从 build.py 下构建（需下载 [chaizi-jt.txt](https://github.com/kfcd/chaizi/raw/master/chaizi-jt.txt) ）。
+[Release](https://github.com/MaxChang3/rime-chaizi/releases) 下载 `chaizi.schema.yaml` 和 `chaizi.dict.yaml`，也可以自己下载完整项目构建。
 
 #### 示例
 
