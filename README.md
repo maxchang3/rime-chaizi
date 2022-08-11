@@ -38,4 +38,4 @@ patch:
       reverse_lookup: "u[a-z]*?$"
 ```
 
-如果已经存在现有的patch，则需要手工合并。
+如果已经存在其它的patch，则需要手工合并。
