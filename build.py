@@ -36,7 +36,6 @@ use_preset_vocabulary: true
             item = f"{data[0].strip()}\t{py}"
             if (item in res): continue  # 去重
             res.append(item)
-    os.mkdir('src')
     with open("src/chaizi.dict.yaml", "w") as f:
         f.write("\n".join(res))
 
