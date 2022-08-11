@@ -9,7 +9,6 @@
 # https://github.com/mozillazg/python-pinyin
 # https://github.com/kfcd/chaizi
 
-import os
 from pypinyin import lazy_pinyin
 
 
