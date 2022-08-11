@@ -33,8 +33,7 @@ patch:
       - xform/([nljqxy])v/$1ü/
     comment_format:
       - xform/([nljqxy])v/$1ü/
-  recognizer:
-    patterns:
+  recognizer/patterns/+:
       reverse_lookup: "u[a-z]*?$"
 ```
 
