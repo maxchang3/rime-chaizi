@@ -9,6 +9,7 @@
 # https://github.com/mozillazg/python-pinyin
 # https://github.com/kfcd/chaizi
 
+import os
 from pypinyin import lazy_pinyin
 
 
@@ -30,11 +31,12 @@ use_preset_vocabulary: true
         for i in range(1, len(data)):
             py = "".join(lazy_pinyin(data[i].replace(" ", "")))
             if not py.isalpha():
-                print(data[i])
+                # print(data[i])
                 continue
             item = f"{data[0].strip()}\t{py}"
             if(item in res): continue # 去重
             res.append(item)
+    os.mkdir('src')
     with open("src/chaizi.dict.yaml", "w") as f:
         f.write("\n".join(res))
 
