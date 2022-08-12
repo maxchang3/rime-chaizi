@@ -7,14 +7,19 @@
 
 根据 @lotem 大佬在这个 [讨论](https://github.com/rime/home/discussions/764) 下的提示，我意识到我们完全可以类似于五笔反查、两分输入来实现上述功能。 因此我修改了 [两分输入法](http://cheonhyeong.com/Simplified/download.html) 的方案，并尝试改为了 u 开头。
 
-词典方面，参照 [这位大佬](http://gerry.lamost.org/blog/?p=296003) 基于 [chaizi](https://github.com/kfcd/chaizi) 构建了拆字词典并做了去重和去除错误字符。
+词典方面，参照 [gerry 老师](http://gerry.lamost.org/blog/?p=296003) 基于 [chaizi](https://github.com/kfcd/chaizi) 构建了拆字词典并做了去重和去除错误字符。
 
 # 使用
+
+## 直接使用
+
+### 1. 下载 yaml
+
 [Release](https://github.com/MaxChang3/rime-chaizi/releases) 下载 `chaizi.schema.yaml` 和 `chaizi.dict.yaml`，也可以自己下载完整项目构建。
 
-#### 示例
+### 2. 添加 Patch
 
-在朙月拼音中使用拆字，需要创建`luna_pinyin.custom.yaml`文件，然后贴入以下内容：
+例如，在朙月拼音中使用拆字，需要创建`luna_pinyin.custom.yaml`文件，然后贴入以下内容：
 
 ```yaml
 # luna_pinyin.custom.yaml
@@ -37,7 +42,24 @@ patch:
       reverse_lookup: "u[a-z]*?$"
 ```
 
-如果已经存在其它的patch，则需要手工合并。
+如果已经存在其它的 patch，则需要手工合并。
+
+## 自行构建
+
+```sh
+git clone https://github.com/MaxChang3/rime-chaizi.git
+cd rime-chaizi
+```
+
+```sh
+curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt >> chaizi-jt.txt
+pip install -r requirements.txt
+```
+
+```sh
+python build.py
+cd src
+```
 
 
 # LICENSE
