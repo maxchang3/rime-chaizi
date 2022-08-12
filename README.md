@@ -52,7 +52,7 @@ cd rime-chaizi
 ```
 
 ```sh
-curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt >> chaizi-jt.txt
+curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt --output chaizi-jt.txt
 pip install -r requirements.txt
 ```
 
