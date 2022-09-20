@@ -20,16 +20,16 @@ use_preset_vocabulary: true
 
 def chai():
     chaizi = []
+    yaml = [HEADER]
+    is_empty = lambda x: x != ' '
     # https://github.com/kfcd/chaizi/raw/master/chaizi-jt.txt
     with open("chaizi-jt.txt") as f:
         chaizi = f.readlines()
-    yaml = [HEADER]
     for line in chaizi:
         char, units = line.strip().split("\t", 1)
         if (char == "□"): continue  # 去除错误字符
         for unit in units.split('\t'):
             pinyin_list = lazy_pinyin(unit.split())
-            is_empty = lambda x: x != ' '
             pinyin = "".join(filter(is_empty, pinyin_list))
             if not pinyin.isalpha(): continue
             item = f"{char.strip()}\t{pinyin}"
