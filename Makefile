@@ -2,7 +2,7 @@
 all: chaizi-jt.txt chaizi.schema.yaml chaizi.dict.yaml
 
 chaizi-jt.txt:
-	if [ -f chaizi-jt.txt ]; then curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt >> chaizi-jt.txt
+	curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt >> chaizi-jt.txt
 
 chaizi.schema.yaml:
 	mkdir -p build && cp src/chaizi.schema.yaml build/chaizi.schema.yaml
