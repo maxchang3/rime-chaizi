@@ -38,6 +38,5 @@ def chai():
     with open("src/chaizi.dict.yaml", "w") as f:
         f.write("\n".join(yaml))
 
-
 if __name__ == "__main__":
     chai()
