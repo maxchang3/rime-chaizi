@@ -2,10 +2,9 @@ name: Build And Release
 
 on:
   push:
-    branches:
-      - master
-    paths:
-      - '**.py'
+    tags:
+      - "v*"
+
 jobs:
   build:
 
@@ -27,13 +26,12 @@ jobs:
           python -m pip install --upgrade pip
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Run build.py
-        run: python build.py 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+        run: python build.py
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: "${{ secrets.ACCESS_TOKEN }}"
           prerelease: false
-          automatic_release_tag: "latest"
-          title: "New version build"
           files: |
             ./src/chaizi.dict.yaml
             ./src/chaizi.schema.yaml
