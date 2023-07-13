@@ -31,7 +31,7 @@ jobs:
           cache: 'pip'
           python-version: ${{ matrix.python-version }}
 
-      - name: Cache chaizi-jt.txt file
+      - name: Restore chaizi-jt.txt
         id: cache-primes
         uses: actions/cache@v3
         with:
@@ -49,3 +49,11 @@ jobs:
           files: |
             ./build/chaizi.dict.yaml
             ./build/chaizi.schema.yaml
+    
+      - name: Save chaizi-jt.txt
+        id: cache-primes-save
+        uses: actions/cache/save@v3
+        with:
+          path: |
+            ./chaizi-jt.txt
+          key: ${{ runner.os }}-chaizi-jt-${{ hashFiles('./chaizi-jt.txt') }}
