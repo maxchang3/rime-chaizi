@@ -19,19 +19,24 @@ jobs:
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
+          cache: 'pip'
           python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt >> chaizi-jt.txt
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Run build.py
-        run: python build.py 
+
+      - name: Cache chaizi-jt.txt file
+        id: cache-primes
+        uses: actions/cache@v3
+        with:
+          path: ./chaizi-jt.txt
+          key: ${{ runner.os }}-chaizi-jt-${{ hashFiles('./chaizi-jt.txt') }}
+
+      - name: Run Makefile
+        run: make
+
       - name: Release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            ./src/chaizi.dict.yaml
-            ./src/chaizi.schema.yaml
+            ./build/chaizi.dict.yaml
+            ./build/chaizi.schema.yaml

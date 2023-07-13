@@ -35,7 +35,7 @@ def chai():
             item = f"{char.strip()}\t{pinyin}"
             if (item in yaml): continue  # 去重
             yaml.append(item)
-    with open("src/chaizi.dict.yaml", "w") as f:
+    with open("build/chaizi.dict.yaml", "w") as f:
         f.write("\n".join(yaml))
 
 if __name__ == "__main__":
