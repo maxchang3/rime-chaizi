@@ -46,10 +46,23 @@ patch:
 
 ## 自行构建
 
+依赖环境：Python 3
+
 ```sh
 git clone https://github.com/MaxChang3/rime-chaizi.git
 cd rime-chaizi
 ```
+
+### 使用 Makefile
+
+```sh
+make
+```
+
+即可。
+
+
+### 手动操作
 
 ```sh
 curl https://raw.githubusercontent.com/kfcd/chaizi/master/chaizi-jt.txt --output chaizi-jt.txt
@@ -58,9 +71,8 @@ pip install -r requirements.txt
 
 ```sh
 python build.py
-cd src
+cd build
 ```
-
 
 # LICENSE
 本仓库采用 MIT 协议。
