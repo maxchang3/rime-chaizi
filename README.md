@@ -75,8 +75,8 @@ cd build
 ```
 
 # LICENSE
-本仓库采用 MIT 协议。
+本仓库代码采用 MIT 协议。
 
-改编原始文件 chaizi-jt.txt 采用 [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/deed.zh_TW)
+改编自原始文件 chaizi-jt.txt 的最终产物采用 [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/deed.zh_TW)
 
 ![](https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by.svg)
