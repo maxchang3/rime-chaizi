@@ -8,20 +8,22 @@
 # Modified by Max @ 2022.06.05
 
 from datetime import datetime
-from pypinyin import lazy_pinyin
+from itertools import product
+import pypinyin
 
 HEADER = f'''---
 name: chaizi
 version: "{datetime.now().strftime("%Y.%m.%d")}"
 sort: by_weight
 use_preset_vocabulary: true
-...'''
+...\n'''
 
+
+is_not_empty = lambda x: x != ' '
 
 def chai():
     chaizi = []
-    yaml = set([HEADER])
-    is_empty = lambda x: x != ' '
+    yaml = set()
     # https://github.com/kfcd/chaizi/raw/master/chaizi-jt.txt
     with open("chaizi-jt.txt") as f:
         chaizi = f.readlines()
@@ -29,13 +31,14 @@ def chai():
         char, units = line.strip().split("\t", 1)
         if (char == "□"): continue  # 去除错误字符
         for unit in units.split('\t'):
-            pinyin_list = lazy_pinyin(unit.split())
-            pinyin = "".join(filter(is_empty, pinyin_list))
-            if not pinyin.isalpha(): continue
-            item = f"{char.strip()}\t{pinyin}"
-            yaml.add(item)
+            pinyin_list = pypinyin.pinyin(unit.split(), style=pypinyin.Style.NORMAL, heteronym=True)
+            for pinyin in product(*pinyin_list):
+                pinyin = "".join(filter(is_not_empty, pinyin))
+                if not pinyin.isalpha(): continue
+                item = f"{char.strip()}\t{pinyin}"
+                yaml.add(item)
     with open("build/chaizi.dict.yaml", "w") as f:
-        f.write("\n".join(yaml))
+        f.write(HEADER + "\n".join(yaml))
 
 if __name__ == "__main__":
     chai()
