@@ -20,7 +20,7 @@ use_preset_vocabulary: true
 
 def chai():
     chaizi = []
-    yaml = [HEADER]
+    yaml = set([HEADER])
     is_empty = lambda x: x != ' '
     # https://github.com/kfcd/chaizi/raw/master/chaizi-jt.txt
     with open("chaizi-jt.txt") as f:
@@ -33,8 +33,7 @@ def chai():
             pinyin = "".join(filter(is_empty, pinyin_list))
             if not pinyin.isalpha(): continue
             item = f"{char.strip()}\t{pinyin}"
-            if (item in yaml): continue  # 去重
-            yaml.append(item)
+            yaml.add(item)
     with open("build/chaizi.dict.yaml", "w") as f:
         f.write("\n".join(yaml))
 
