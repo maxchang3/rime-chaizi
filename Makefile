@@ -1,4 +1,4 @@
-.PHONY: all clean
+.PHONY: all
 all: chaizi-jt.txt chaizi.schema.yaml chaizi.dict.yaml
 
 chaizi-jt.txt:
@@ -13,4 +13,4 @@ chaizi.dict.yaml: chaizi-jt.txt chaizi.schema.yaml build.py
 	python build.py
 
 clean:
-	rm -f chaizi-jt.txt
+	rm -f chaizi-jt.txt build/*
