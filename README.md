@@ -1,3 +1,18 @@
+# ⚠️DEPRECATED⚠️
+# 此仓库已弃用
+
+由于 pypinyin 的引入，此项目的词典有许多错注、漏注。加上我本人对此的需求也不是十分强烈的，因此也一直未进一步改善，未考虑人工矫正等工作。
+
+前段时间发现已经有人完成了这项工作，因此此项目正式归档，推荐使用 [rime-radical-pinyin](https://github.com/mirtlecn/rime-radical-pinyin) 替代。
+
+---
+---
+
+以下为原始内容
+
+---
+---
+
 <div align="center">
 <img src="preview.png" height="128">
 </div>
